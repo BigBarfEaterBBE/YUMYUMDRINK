@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://ba2ad4wrykt5k"]
+
+[ext_resource type="Texture2D" uid="uid://cdpmb10e7l7wj" path="res://assets/strawberry-icon.png" id="1_m1vp5"]
+[ext_resource type="Script" uid="uid://c8wj2wt6wm1kr" path="res://scripts/my_node(drag).gd" id="2_st8h3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1vp5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 999
+corner_radius_top_right = 999
+corner_radius_bottom_right = 999
+corner_radius_bottom_left = 999
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_st8h3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 999
+corner_radius_top_right = 999
+corner_radius_bottom_right = 999
+corner_radius_bottom_left = 999
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fegpa"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 999
+corner_radius_top_right = 999
+corner_radius_bottom_right = 999
+corner_radius_bottom_left = 999
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lt6ok"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 999
+corner_radius_top_right = 999
+corner_radius_bottom_right = 999
+corner_radius_bottom_left = 999
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o77tf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 999
+corner_radius_top_right = 999
+corner_radius_bottom_right = 999
+corner_radius_bottom_left = 999
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n6m2b"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 999
+corner_radius_top_right = 999
+corner_radius_bottom_right = 999
+corner_radius_bottom_left = 999
+
+[node name="Sprite2D" type="Sprite2D"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_m1vp5")
+script = ExtResource("2_st8h3")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -236.0
+offset_top = -280.0
+offset_right = 248.0
+offset_bottom = 196.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_m1vp5")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_st8h3")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fegpa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lt6ok")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o77tf")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n6m2b")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
