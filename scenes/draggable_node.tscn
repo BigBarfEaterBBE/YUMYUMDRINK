@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://ba2ad4wrykt5k"]
+[gd_scene load_steps=11 format=3 uid="uid://ba2ad4wrykt5k"]
 
 [ext_resource type="Texture2D" uid="uid://cdpmb10e7l7wj" path="res://assets/strawberry-icon.png" id="1_m1vp5"]
+[ext_resource type="Script" uid="uid://dlqg6spjbw4pl" path="res://scripts/button.gd" id="2_fegpa"]
 [ext_resource type="Script" uid="uid://c8wj2wt6wm1kr" path="res://scripts/my_node(drag).gd" id="2_st8h3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1vp5"]
@@ -45,22 +46,31 @@ corner_radius_top_right = 999
 corner_radius_bottom_right = 999
 corner_radius_bottom_left = 999
 
-[node name="Sprite2D" type="Sprite2D"]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_m1vp5")
+[sub_resource type="CircleShape2D" id="CircleShape2D_m1vp5"]
+radius = 61.2046
+
+[node name="draggable_node" type="RigidBody2D"]
+texture_filter = 1
 script = ExtResource("2_st8h3")
 
 [node name="Button" type="Button" parent="."]
-offset_left = -236.0
-offset_top = -280.0
-offset_right = 248.0
-offset_bottom = 196.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
 theme_override_styles/focus = SubResource("StyleBoxFlat_m1vp5")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_st8h3")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fegpa")
 theme_override_styles/hover = SubResource("StyleBoxFlat_lt6ok")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_o77tf")
 theme_override_styles/normal = SubResource("StyleBoxFlat_n6m2b")
+script = ExtResource("2_fegpa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_m1vp5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_m1vp5")
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
